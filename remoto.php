@@ -28,7 +28,12 @@
 
 	$pages = $total/$end;
 
-	$res['actualPage'] = $page;
+	if($page > $pages){
+		$res['actualPage'] = ceil($pages);
+	} else {
+		$res['actualPage'] = $page;
+	}
+
 	$res['maxRegsPage'] = 6;
 	$res['totalPages'] = ceil($pages);
 	$res['totalRegs'] = $total;

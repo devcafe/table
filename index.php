@@ -12,7 +12,16 @@
 .right20{
 	margin-right:20px;
 }
+.width30{
+	width:30px;
+}
 #gerLinhas_table thead th span{
+	cursor:pointer;
+}
+.width100{
+	width:100px;
+}
+#gerLinhas_table tbody tr td.show{
 	cursor:pointer;
 }
 </style>
@@ -39,8 +48,10 @@
 
 	<table id = "gerLinhas_table" class="table table-striped table-hover">
 		<thead> 
+			<th class = "width30"></th>
 			<th id = "numLinha"> Numero <span class="pull-right glyphicon glyphicon-chevron-down"></span></th>
 			<th id = "plano"> Plano <span class="pull-right glyphicon glyphicon-chevron-down"></span></th>
+			<th class = "width100"></th>
 		</thead>
 
 		<tbody>
@@ -48,8 +59,10 @@
 		</tbody>
 
 		<tfoot>
+			<th class = "width30"></th>
 			<th> Numero </th>
 			<th> Plano </th>
+			<th class = "width100"></th>
 		</tfoot>
 	</table>
 
