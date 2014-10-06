@@ -12,6 +12,9 @@
 .right20{
 	margin-right:20px;
 }
+#gerLinhas_table thead th span{
+	cursor:pointer;
+}
 </style>
 
 <div id = "tableWrapper_gerLinhas">
@@ -19,7 +22,7 @@
 		<div class="panel-body">
 			<div class="input-group pull-right col-md-4">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-				<input class="form-control" type="text" placeholder="Search">
+				<input class="form-control" type="text" id = "gerLinhas_pagination_search" placeholder="Procurar...">
 			</div>
 			<div class="input-group col-md-2 pull-left">
 				<select id = "gerLinhas_regs" class="form-control">
@@ -34,10 +37,10 @@
 		</div>
 	</div>
 
-	<table id = "gerLinhas_table" class="table table-striped">
+	<table id = "gerLinhas_table" class="table table-striped table-hover">
 		<thead> 
-			<th> Numero </th>
-			<th> Plano </th>
+			<th id = "numLinha"> Numero <span class="pull-right glyphicon glyphicon-chevron-down"></span></th>
+			<th id = "plano"> Plano <span class="pull-right glyphicon glyphicon-chevron-down"></span></th>
 		</thead>
 
 		<tbody>
@@ -53,8 +56,9 @@
 	<div class="panel-body">
 		<div id = "gerLinhas_tableInfos" class = "pull-left pagination text-center"> 
 			<p> 
-				Total de registros: <span id = "gerLinhas_tableRegTotal"> </span> 
-				| Voce esta na pagina: <span id = "gerLinhas_tableRegPage"> </span>
+				<strong> Total de registros: </strong> <span id = "gerLinhas_tableRegTotal"> </span> 
+				<strong> | Voce esta na pagina: </strong> <span id = "gerLinhas_tableRegPage"> </span>
+				<strong> de: </strong> <span id = "gerLinhas_tableTotalPages"> </span>
 			</p>
 		</div>
 

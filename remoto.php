@@ -4,14 +4,26 @@
 	$end = $_POST['regsLimit'];
 	$page = $_POST['page'];
 
-	$sql = $pdo->prepare("Select numLinha, plano From webcafe_modTelefonia_linhas");
+	if(isset($_POST['searchVal']) && $_POST['searchVal'] != ''){
+		$where = "Where numLinha like '%".$_POST['searchVal']."%' Or plano like '%".$_POST['searchVal']."%'";
+	} else {
+		$where = '';
+	}
+
+	if(isset($_POST['order']) && $_POST['order'] != ''){
+		$orderBy = 'Order By ' . $_POST['order'];
+	} else {
+		$orderBy = '';
+	}
+
+	$sql = $pdo->prepare("Select numLinha, plano From webcafe_modTelefonia_linhas $where $orderBy");
 	$sql->execute();
 	$total = $sql->rowCount();
 
 	$start = $page - 1;
 	$start = $start * $end;
 
-	$limit = $pdo->prepare("Select numLinha, plano From webcafe_modTelefonia_linhas Limit $start, $end");
+	$limit = $pdo->prepare("Select numLinha, plano From webcafe_modTelefonia_linhas $where $orderBy Limit $start, $end");
 	$limit->execute();
 
 	$pages = $total/$end;
